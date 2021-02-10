@@ -5,6 +5,7 @@
 #include "DiffusionCIR.h"
 #include "DiffusionLipton.h"
 #include "IRProviderConst.h"
+#include "MCEngine1D.hpp"
 
 using namespace SiriusFM;
 int main(void)
@@ -27,7 +28,12 @@ int main(void)
     std::cout << "_____________\n";
 
     IRProvider<IRModeE::Const> irp("File_R.txt");
-    std::cout << irp.r(CcyE::RUB, 1) << "\n";
+    std::cout << irp.r(CcyE::USD, 1) << "\n";
+
+    /*MCEngine1D<DiffusionGBM, IRProvider <IRModeE::Const>, IRProvider <IRModeE::Const>, CcyE, CcyE> mce(100, 100);
+    mce.Simulate(1, 100, 0.1, 100, 1, MOD_GBM, irp, irp, CcyE::USD, CcyE::RUB, 0);
+    
+    std::cout << std::get<0>(tuple) << " " << std::get<1>(tuple) << " " << std::get<2>(tuple) << "\n";*/
 
     return 1;
 }

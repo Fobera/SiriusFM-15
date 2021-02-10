@@ -7,6 +7,11 @@ namespace SiriusFM
 {
     IRProvider <IRModeE::Const>::IRProvider(char const* a_file)
     {
+        if(a_file == nullptr || *a_file == '\0')
+        {
+            return;
+        }
+
         FILE* fin = fopen(a_file, "r");
         if (fin == 0)
         {

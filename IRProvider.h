@@ -5,6 +5,7 @@ namespace SiriusFM
 {
     enum class CcyE
     {
+        UNDEFINED = -1,
         USD = 0,
         RUB = 1,
         N = 2
